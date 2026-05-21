@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title data-i18n="pageTitle">Simples Simulador de Marcação de Imagens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <section class="hero">
+        <div class="badge" data-i18n="heroBadge">Simulação • Data Annotation • IA</div>
+        <h1 data-i18n="heroTitle">Simples Simulador de Marcação de Imagens</h1>
+        <p class="description" data-i18n="heroDesc">
+            Experimente o fluxo básico utilizado em plataformas de annotation e computer vision. Crie bounding boxes e classifique objetos.
+        </p>
+    </section>
+
+    <div class="layout">
+        <main class="workspace">
+            <div class="toolbar">
+                <div class="select-group">
+                    <label for="category" data-i18n="labelCategory">Categoria do Objeto</label>
+                    <select id="category">
+                        <option value="Pessoa" data-i18n="opt1">Pessoa</option>
+                        <option value="Carro" data-i18n="opt2">Carro</option>
+                        <option value="Cachorro" data-i18n="opt3">Cachorro</option>
+                        <option value="Árvore" data-i18n="opt4">Árvore</option>
+                        <option value="Construção" data-i18n="opt5">Construção</option>
+                    </select>
+                </div>
+                <button onclick="clearBoxes()" data-i18n="btnClear">
+                    Limpar Marcações
+                </button>
+            </div>
+
+            <div class="image-area" id="imageArea">
+                <img src="./src/img/test.png" alt="Dataset Image">
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="card">
+                <h3 data-i18n="sideTitle1">O que esta simulação representa?</h3>
+                <p data-i18n="sideDesc1">
+                    Ferramentas de anotação de dados são usadas para identificar elementos em imagens, permitindo que modelos de IA aprendam padrões visuais.
+                </p>
+                <ul>
+                    <li>Bounding Boxes</li>
+                    <li data-i18n="li2">Classificação de Objetos</li>
+                    <li data-i18n="li3">Treinamento de IA</li>
+                    <li>Computer Vision</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="sideTitle2">Diferenciais da Área</h3>
+                <div class="stats">
+                    <div class="stat">
+                        <strong data-i18n="statFoco">Foco</strong>
+                        <span data-i18n="statFocoDesc">Atenção total</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-i18n="statPrec">Precisão</strong>
+                        <span data-i18n="statPrecDesc">Baixo erro</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-i18n="statOrg">Organização</strong>
+                        <span data-i18n="statOrgDesc">Protocolos</span>
+                    </div>
+                    <div class="stat">
+                        <strong data-i18n="statCons">Consistência</strong>
+                        <span data-i18n="statConsDesc">Qualidade</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<button class="lang-toggle-btn" id="langBtn" onclick="toggleLanguage()" title="Language">EN</button>
+<button class="help-floating-btn" id="helpBtn" onclick="openModal()" title="Help">?</button>
+<a href="https://labelimg.org/" target="_blank" class="external-redirect-btn" data-i18n="btnRedirect">Conheça um Real</a>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal(event)">&times;</button>
+        <h2 id="modalMainTitle" data-i18n="modalTitle">Detalhes dos Conceitos</h2>
+        
+        <div class="modal-topic">
+            <h3>Bounding Boxes</h3>
+            <p id="descBB" data-i18n="modalBB">São caixas retangulares desenhadas sobre objetos específicos dentro de uma imagem técnica. Elas servem para delimitar as coordenadas exatas de largura e altura do item analisado. É o método primário para ensinar sistemas de IA a localizarem estruturas no espaço visual.</p>
+        </div>
+
+        <div class="modal-topic">
+            <h3 data-i18n="li2">Classificação de Objetos</h3>
+            <p id="descCO" data-i18n="modalCO">Consiste no ato de atribuir uma etiqueta ou categoria específica para a região selecionada na imagem. Não basta apenas saber onde o objeto está localizado, o sistema precisa rotular o que ele representa. Isso categoriza se o elemento detectado é um carro, pessoa, animal ou placa.</p>
+        </div>
+
+        <div class="modal-topic">
+            <h3 data-i18n="li3">Treinamento de IA</h3>
+            <p id="descTA" data-i18n="modalTA">É o processo repetitivo onde milhares de imagens previamente marcadas alimentam um algoritmo de rede neural. A máquina analisa os exemplos corretos para tentar deduzir as regras matemáticas visuais por conta própria. Quanto maior a qualidade das marcações humanas, mais inteligente e autônomo o modelo se torna.</p>
+        </div>
+
+        <div class="modal-topic">
+            <h3>Computer Vision</h3>
+            <p id="descCV" data-i18n="modalCV">Área da ciência da computação que desenvolve tecnologias para fazer softwares extraírem informações de mídias visuais. Ela busca simular o complexo sistema de interpretação de imagens que o olho e o cérebro humano realizam naturalmente. É a base tecnológica por trás de carros autônomos e reconhecimento facial.</p>
+        </div>
+    </div>
+</div>
+
+<script src="./src/Js/script.js"></script>
+</body>
+</html>
